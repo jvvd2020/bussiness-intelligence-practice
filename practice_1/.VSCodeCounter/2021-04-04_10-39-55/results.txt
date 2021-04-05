@@ -1,0 +1,36 @@
+Date : 2021-04-04 10:39:55
+Directory : /Users/jvvd/Documents/C_file
+Total : 9 files,  234 codes, 11 comments, 31 blanks, all 276 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C        |          8 |        215 |         11 |         24 |        250 |
+| C++      |          1 |         19 |          0 |          7 |         26 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                |          9 |        234 |         11 |         31 |        276 |
+| practice_1                                                       |          9 |        234 |         11 |         31 |        276 |
+| practice_1/function                                              |          7 |        172 |         11 |         14 |        197 |
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                         | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/jvvd/Documents/C_file/practice_1/function/creat.c         | C        |         30 |          0 |          0 |         30 |
+| /Users/jvvd/Documents/C_file/practice_1/function/delete_repeat.c | C        |         19 |          2 |          1 |         22 |
+| /Users/jvvd/Documents/C_file/practice_1/function/intersection.c  | C        |         24 |          0 |          1 |         25 |
+| /Users/jvvd/Documents/C_file/practice_1/function/list_add.c      | C        |         18 |          4 |          1 |         23 |
+| /Users/jvvd/Documents/C_file/practice_1/function/output_list.c   | C        |         10 |          0 |          1 |         11 |
+| /Users/jvvd/Documents/C_file/practice_1/function/sort.c          | C        |         42 |          5 |          7 |         54 |
+| /Users/jvvd/Documents/C_file/practice_1/function/substraction.c  | C        |         29 |          0 |          3 |         32 |
+| /Users/jvvd/Documents/C_file/practice_1/main.c                   | C        |         43 |          0 |         10 |         53 |
+| /Users/jvvd/Documents/C_file/practice_1/main.h                   | C++      |         19 |          0 |          7 |         26 |
+| Total                                                            |          |        234 |         11 |         31 |        276 |
++------------------------------------------------------------------+----------+------------+------------+------------+------------+
