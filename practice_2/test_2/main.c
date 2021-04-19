@@ -55,6 +55,7 @@ int main()
             {
                 printf("no input expression!\n");
             }
+            printf("\n");
             printf("press enter to continue\n");
             getchar();
             break;
@@ -67,18 +68,27 @@ int main()
             else
             {
 
-                function_convert_middle_bracket_to_small_bracket(stack_top_of_expression_input);
-                top_of_number_stack = function_convert_char_to_number_stack(top_of_number_stack, stack_top_of_expression_input);
-                top_of_operator_stack = function_convert_infix_to_postfix(top_of_number_stack, top_opeartor_number_stack, top_of_operator_stack);
-                printf("expression result is :\n%.2f\n", function_postfix_expression_calculation(top_of_operator_stack));
+                function_convert_middle_bracket_to_small_bracket(stack_top_of_expression_input_reverse);
+                top_of_number_stack = function_convert_char_to_number_stack(top_of_number_stack, stack_top_of_expression_input_reverse);
+                double result_is;
+                result_is = function_convert_infix_to_postfix(top_of_number_stack, top_of_number_stack, top_of_opearator_stack);
 
+                // printf("the infix is:\n");
+                // struct numberstack *kkk;
+                // kkk = top_of_number_stack;
+                // while (kkk != NULL)
+                // {
+                //     printf("%.2f ", kkk->element);
+                //     kkk = kkk->next;
+                // }
+                // printf("\n");
+
+                printf("the result is:\n%.2f\n", result_is);
                 //after calculate need to free memory
                 free(top_of_number_stack);
-                free(top_of_operator_stack);
-                free(top_opeartor_number_stack);
+                free(top_of_opearator_stack);
                 top_of_number_stack = NULL;
-                top_of_operator_stack = NULL;
-                top_opeartor_number_stack = NULL;
+                top_of_opearator_stack = NULL;
             }
             printf("press enter to continue\n");
             getchar();

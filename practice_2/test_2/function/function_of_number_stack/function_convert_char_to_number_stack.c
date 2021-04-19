@@ -1,6 +1,6 @@
 struct numberstack *function_convert_char_to_number_stack(struct numberstack *number_stack_top, struct linkstack *char_stack_top)
 {
-    struct single_number_count_stack *top_of_single_number_stack=NULL;
+    struct single_number_count_stack *top_of_single_number_stack = NULL;
     while (char_stack_top != NULL)
     {
         if (char_stack_top->element >= '0' && char_stack_top->element <= '9') //if element is number
@@ -31,6 +31,15 @@ struct numberstack *function_convert_char_to_number_stack(struct numberstack *nu
         number_stack_top = function_push_number(number_stack_top, function_convert_single_stack_number_to_double_number(top_of_single_number_stack));
         top_of_single_number_stack = function_clear_single_number_stack(top_of_single_number_stack);
     }
-
-    return number_stack_top;
+    //need to reservse the stack
+    struct numberstack *reverse = NULL;
+    while (number_stack_top != NULL)
+    {
+        reverse = function_push_number(reverse, number_stack_top->element);
+        struct numberstack *tmp;
+        tmp = number_stack_top;
+        number_stack_top = number_stack_top->next;
+        free(tmp);
+    }
+    return reverse;
 }

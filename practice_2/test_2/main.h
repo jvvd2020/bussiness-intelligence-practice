@@ -18,8 +18,7 @@ struct linkstack *stack_top_of_expression_input = NULL;//free
 struct linkstack *stack_top_of_expression_input_reverse=NULL;//free
 
 struct numberstack *top_of_number_stack=NULL;//free 
-struct numberstack *top_opeartor_number_stack=NULL;//free
-struct numberstack *top_of_operator_stack=NULL;//free
+struct numberstack *top_of_opearator_stack=NULL;//free
 
 //include accept expression functions
 #include "./function/function_of_char_stack/accept_expression/function_push_char.c"
@@ -45,6 +44,3 @@ struct numberstack *top_of_operator_stack=NULL;//free
 #include"function/function_of_convert_expression/function_pop_operate_number.c"
 #include"function/function_of_convert_expression/calculate_two_number.c"
 #include"function/function_of_convert_expression/function_convert_infix_to_postfix.c"
-
-//include expression calculation
-#include"function/expression_calculation/function_postfix_expression_calculation.c"

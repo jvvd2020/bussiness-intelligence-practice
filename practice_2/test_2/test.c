@@ -44,20 +44,3 @@
 //     }
 //     printf("\n");
 // }
-#include<stdio.h>
-int main()
-{
-    double a;
-    printf("a\n");
-    a = -1;
-    if (a == -1)
-    {
-        printf("hello\n");
-    }
-    
-
-
-    getchar();
-    getchar();
-    return 0;
-}

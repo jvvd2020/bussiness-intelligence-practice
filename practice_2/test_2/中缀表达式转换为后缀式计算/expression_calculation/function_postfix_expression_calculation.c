@@ -1,8 +1,8 @@
 double function_postfix_expression_calculation(struct numberstack *top)
 {
-    struct numberstack *first_num;
-    struct numberstack *second_num;
-    struct numberstack *first_node_of_opearator;
+    struct numberstack *first_num = NULL;
+    struct numberstack *second_num = NULL;
+    struct numberstack *first_node_of_opearator = NULL;
     //find the first node of opearator
     first_node_of_opearator = top;
     while (first_node_of_opearator != NULL)
@@ -21,12 +21,15 @@ double function_postfix_expression_calculation(struct numberstack *top)
     {
 
         first_num = top;
-        while (first_num->next->next != first_node_of_opearator)
+        if (first_num->next != NULL)
         {
-            first_num = first_num->next;
+            while (first_num->next->next != first_node_of_opearator)
+            {
+                first_num = first_num->next;
+            }
+            second_num = first_num->next;
         }
-        second_num = first_num->next;
-        if (second_num == NULL)
+        else
         {
             return first_num->element;
         }
