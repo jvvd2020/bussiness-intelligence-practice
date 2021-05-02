@@ -24,6 +24,7 @@ LNode *creatList_TailInsert(LNode *list) //尾插法创建链表
     R=L;            //新建的空表 只有一个节点 既L=R L=R 出现了指针错误 5
     
     while (e != 9999)
+    
     {
         scanf("%d", &e);
         S = (LNode *)malloc(LEN);
@@ -81,5 +82,3 @@ int main()
     link_order(list2);
     print(list1);
     print(list2);
-}
-
