@@ -17,21 +17,27 @@ int option;
         switch (option)
         {
         case 1:
+            printf("press to continue\n");
             getchar();
             break;
         case 2:
+            printf("press to continue\n");
             getchar();
             break;
         case 3:
+            printf("press to continue\n");
             getchar();
             break;
         case 4:
+            printf("press to continue\n");
             getchar();
             break;
         case 5:
+            printf("press to continue\n");
             getchar();
             break;
         case 6:
+            printf("press to continue\n");
             option = 6;
             break;
         }
