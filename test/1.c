@@ -1,10 +1,9 @@
 #include<stdio.h>
 int main()
 {
-    char a = 127;
-    char b[]="汉字";
-    printf("%s\n",b);
-    printf("%c\n",a);
+    int a;
+    int *p;
+    p = &a;
 
     return 0;
 }
