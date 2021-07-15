@@ -1,12 +1,10 @@
 void function_input_a_decimal()
 {
-    printf("input a decimal\n");
     scanf("%d", &n);
     whether_input_a_decimal = 1;
 }
 void function_input_a_base()
 {
-    printf("input a base\n");
     scanf("%d", &m);
     whether_input_a_base = 1;
 }
@@ -34,15 +32,15 @@ void push(struct Sequential *s, int x)
 }
 int function_convert()
 {
-    if (whether_input_a_base != 1 || whether_input_a_decimal != 1)
+    if (whether_input_a_base == 0 || whether_input_a_decimal == 0)
     {
-        if (whether_input_a_base != 1)
+        if (whether_input_a_base == 0)
         {
             printf("------------------------\n");
             printf("you have to input a base\n");
             printf("------------------------\n");
         }
-        if (whether_input_a_decimal != 1)
+        if (whether_input_a_decimal == 0)
         {
             printf("---------------------------\n");
             printf("you have to input a decimal\n");

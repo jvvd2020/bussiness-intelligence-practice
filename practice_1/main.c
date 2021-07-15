@@ -47,6 +47,8 @@ int main()
     printf("\n差集为:");
     sort(head_substraction);
     output_list(head_substraction);
+    
+    
     printf("\n");
     printf("------------\n创建数组a\n");
     creat_array(a);
