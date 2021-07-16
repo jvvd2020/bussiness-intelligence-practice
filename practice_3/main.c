@@ -40,7 +40,6 @@ int function_regular_match(char *S, char *T)
         {
             if (*(S + k + j) != *(T + j))
             {
-                k++;
                 break;
             }
             if (*(T + j + 1) == '\0')
