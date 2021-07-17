@@ -94,6 +94,8 @@ int *function_calculate_next(char *T, int *next)
         {
             free(string_left);
             free(string_right);
+            // string_left = (char *)malloc((j - i) * sizeof(char));
+            // string_right = (char *)malloc((j - i) * sizeof(char));//wrong fucntion to alloc memory
             string_left = (char *)calloc((j - i), sizeof(char));
             string_right = (char *)calloc((j - i), sizeof(char));
             printf("this is left:%s\n", string_left);
