@@ -27,18 +27,17 @@ int function_input_S(char *S, int option)
 }
 int function_regular_match(char *S, char *T)
 {
-    int i, j, k;
+    int i, j;
     for (i = 0; *(S + i) != '\0'; i++)
     {
-        k = i;
-        if (strlen(T) + k > strlen(S))
+        if (strlen(T) + i > strlen(S))
         {
             printf("match false,there is no such string\n");
             return 0;
         }
         for (j = 0; *(T + j) != '\0'; j++)
         {
-            if (*(S + k + j) != *(T + j))
+            if (*(S + i + j) != *(T + j))
             {
                 break;
             }
@@ -75,6 +74,8 @@ int function_regular_match(char *S, char *T)
 int *function_calculate_next(char *T, int *next)
 {
     free(next);
+    char *string_left = NULL;
+    char *string_right = NULL;
     next = (int *)malloc(strlen(T) * sizeof(int));
     for (int i = 0; i < strlen(T); i++)
     {
@@ -84,16 +85,22 @@ int *function_calculate_next(char *T, int *next)
     {
         return next;
     }
-    //when strlen is more than 3 ,excute followingπ code
+    //when strlen is more than 3 ,excute following code
     int T_length = strlen(T);
     for (int j = 2; j < T_length; j++)
     {
+        printf("output in j\n");
         for (int i = 1; i < j; i++)
         {
-            char *string_left;
-            char *string_right;
-            string_left = (char *)malloc((j - i) * sizeof(char));
-            string_right = (char *)malloc((j - i) * sizeof(char));
+            free(string_left);
+            free(string_right);
+            string_left = (char *)calloc((j - i), sizeof(char));
+            string_right = (char *)calloc((j - i), sizeof(char));
+            printf("this is left:%s\n", string_left);
+            printf("left length is %ld\n", strlen(string_left));
+            printf("this is right:%s\n", string_right);
+            printf("left length is %ld\n", strlen(string_right));
+            printf("output in i\n");
             for (int k = 0; k < j - i; k++)
             {
                 *(string_left + k) = *(T + k);
@@ -102,15 +109,14 @@ int *function_calculate_next(char *T, int *next)
             {
                 *(string_right + m) = *(T + k);
             }
+            printf("%s\n", string_left);
+            printf("%s\n", string_right);
             if (strcmp(string_left, string_right) == 0)
             {
-                free(string_left);
-                free(string_right);
+
                 *(next + j) = j - i;
                 break;
             }
-            free(string_left);
-            free(string_right);
         }
     }
     return next;
@@ -120,28 +126,24 @@ int function_kmp_match(char *S, char *T, int *next)
     int j = 0, k;
     for (k = 0; *(S + k) != '\0';)
     {
-        if (strlen(T) + k > strlen(S))
+        if (strlen(T) - j + k > strlen(S))
         {
             printf("match false,there is no such string\n");
             return 0;
         }
         for (; *(T + j) != '\0'; j++)
         {
-            if (*(S + k + j) != *(T + j))
+            if (*(S + k++) != *(T + j))
             {
                 j = *(next + j);
-                if (j == 0)
-                {
-                    k++;
-                }
                 break;
             }
             if (*(T + j + 1) == '\0')
             {
                 printf("kmp match done!\n");
-                printf("location is in %d\n", k);
+                printf("location is in %ld\n", k - strlen(T));
                 printf("the result is\n");
-                for (int c = 0; c < k; c++)
+                for (int c = 0; c < k - strlen(T); c++)
                 {
                     printf("%c", *(S + c));
                 }
