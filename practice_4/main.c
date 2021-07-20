@@ -28,8 +28,8 @@ int pre_order_travel(struct BinaryTree *t)
     if (t)
     {
         printf("%c", t->data);
-        in_order_travel(t->left_child);
-        in_order_travel(t->right_child);
+        pre_order_travel(t->left_child);
+        pre_order_travel(t->right_child);
     }
     return 0;
 }
@@ -37,8 +37,8 @@ int last_order_travel(struct BinaryTree *t)
 {
     if (t)
     {
-        in_order_travel(t->left_child);
-        in_order_travel(t->right_child);
+        last_order_travel(t->left_child);
+        last_order_travel(t->right_child);
         printf("%c", t->data);
     }
     return 0;
@@ -49,10 +49,10 @@ struct BinaryTree *creat_bintree(struct BinaryTree *t)
     // printf("hint AB##CDF###EG##H##\n");
     char ch;
     ch = getchar();
-    if (ch == '+')
-    {
-        in_order_travel(tree_a);
-    }
+    // if (ch == '+')
+    // {
+    //     in_order_travel(tree_a);
+    // }
     if (ch == '#')
     {
 
@@ -61,12 +61,11 @@ struct BinaryTree *creat_bintree(struct BinaryTree *t)
     else
     {
         t = (struct BinaryTree *)malloc(sizeof(struct BinaryTree));
-        t->left_child = NULL; //init node
+        t->left_child = NULL; 
         t->right_child = NULL;
         t->data = ch;
         t->left_child = creat_bintree(t->left_child);
         t->right_child = creat_bintree(t->right_child);
-        return t;
     }
 }
 int count(struct BinaryTree *t)
