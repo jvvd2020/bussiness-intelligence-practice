@@ -19,7 +19,7 @@ struct leafNode
 //variables
 struct leafNode *head_of_leafNode = NULL;
 int size_of_character = 0;
-struct leafNode **copy_of_leafNode_link;
+struct leafNode **copy_of_leafNode_link; //free
 
 //part_0 fundemental
 void part_0_creat_leafNode_link(struct haffmanNode *tmp)
@@ -42,6 +42,7 @@ void part_0_creat_leafNode_link(struct haffmanNode *tmp)
 void part_0_copy_leafNode_link(struct leafNode *head) //head node has data
 {
     //allocate space for pointer of leafNode
+    //pointer array
     copy_of_leafNode_link = (struct leafNode **)malloc(size_of_character * sizeof(struct leafNode *));
     for (int i = 0; i < size_of_character; i++)
     {
@@ -52,6 +53,8 @@ void part_0_copy_leafNode_link(struct leafNode *head) //head node has data
 //part_1 creat haffmantree
 void part_1_init_character()
 {
+    copy_of_leafNode_link = NULL;
+    head_of_leafNode = NULL;
     int character_size;
     printf("input the size of the character,hint:10\n");
     scanf("%d", &character_size);
@@ -191,15 +194,6 @@ void test_find_min()
     struct leafNode *min;
     min = part_1_find_min_weight(head_of_leafNode);
     printf("the min weight is %d\n", min->weight);
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
-    // test_find_min();
     // test_output_leafNode(head_of_leafNode);//test:✅
 }
 int main()
@@ -228,7 +222,6 @@ int main()
             system("clear");
             part_1_init_character();
             part_1_creat_haffman_tree();
-            part_2_haffman_encode();
             printf("press to continue\n");
             getchar();
             getchar();
@@ -245,7 +238,8 @@ int main()
             break;
         case 4:
             system("clear");
-            printf("you need to run 1 first\n");
+            part_2_haffman_encode();
+            printf("press to continue\n");
             getchar();
             break;
         case 5:
