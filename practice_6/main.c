@@ -2,14 +2,24 @@
 #include <stdlib.h>
 int graph[7][7];
 int point_DFSed[7];
-
+int array_store_BFSed[7] = {-1, -1, -1, -1, -1, -1, -1};
+int BFS_count;
+int queue_count;
+void funtion_clear_BFS()
+{
+    for (int i = 0; i < 7; i++)
+    {
+        array_store_BFSed[i] = -1;
+    }
+    BFS_count = 0;
+    queue_count = 0;
+}
 void function_print_graph()
 {
     for (int i = 0; i < 7; i++)
     {
         for (int j = 0; j < 7; j++)
         {
-
             printf("%d ", graph[i][j]);
         }
         printf("\n");
@@ -51,44 +61,50 @@ void function_clear_DFSed()
         point_DFSed[i] = 0;
     }
 }
+
 void function_BFS(int start_point)
 {
-
-    int stop_record = 0;
-    int BFS_array[7];
-    BFS_array[0] = start_point;
-    point_DFSed[0] = 1;
-    stop_record++;
-    for (int i = 0; i < 7; i++)
+    if (BFS_count > 6)
     {
-        if (graph[0][i] != 0)
-        {
-            BFS_array[stop_record] = i;
-            point_DFSed[i] = 1;
-            stop_record++;
-        }
+        return;
     }
-
-    for (int i = 0; i < 7; i++) //traverse BFS array
     {
-
-        for (int j = 0; j < 7; j++) //traverse point nearby BFS_array[i]
+        int flag = 0;
+        for (int j = 0; j < 7; j++)
         {
-            if (graph[BFS_array[i]][j] != 0 && point_DFSed[j] == 0)
+            if (array_store_BFSed[j] == start_point)
             {
-                BFS_array[stop_record] = j;
-                if (stop_record == 6)
-                {
-                    for (int i = 0; i < 7; i++)
-                    {
-                        printf("%d", BFS_array[i]);
-                    }
-                    return;
-                }
-
-                stop_record++;
+                flag = 1;
+                break;
             }
         }
+        if (flag == 0)
+        {
+            array_store_BFSed[BFS_count++] = start_point;
+        }
+    }
+    for (int i = 0; i < 7; i++)
+    {
+        if (graph[start_point][i] != 0)
+        {
+            int flag = 0;
+            for (int j = 0; j < 7; j++)
+            {
+                if (array_store_BFSed[j] == i)
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0)
+            {
+                array_store_BFSed[BFS_count++] = i;
+            }
+        }
+    }
+    if (BFS_count < 7)
+    {
+        function_BFS(array_store_BFSed[++queue_count]);
     }
 }
 void function_auto()
@@ -158,8 +174,13 @@ int main()
             int b;
             scanf("%d", &b);
             getchar();
-            function_clear_DFSed();
+            funtion_clear_BFS();
             function_BFS(b);
+            for (int i = 0; i < 7; i++)
+            {
+                printf("%d", array_store_BFSed[i]);
+            }
+
             printf("\npress to continue\n");
             getchar();
             break;
